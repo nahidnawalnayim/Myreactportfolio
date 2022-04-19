@@ -5,9 +5,9 @@ function Navbar() {
   const thisref=useRef();
   return (
     <div>
-      <nav className="bg-gray-800">
+      <nav className="" style={{backgroundColor:'#0a192f'}}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-14 md:h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <h3 className="text-gray-200">LOGO</h3>
@@ -16,37 +16,37 @@ function Navbar() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
                     href="#"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
-                    About US
+                    About
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
                     Services
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
                     Projects
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
-                    ContactUS
+                    Contact
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
                   >
-                    FollowUS
+                    Follow us
                   </a>
                 </div>
               </div>
@@ -114,11 +114,11 @@ function Navbar() {
 
        
 
-      <header className="bg-white">
+      {/* <header className="bg-white">
         <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold text-gray-900"></h1>
         </div>
-      </header>
+      </header> */}
       <main>
         
       </main>
