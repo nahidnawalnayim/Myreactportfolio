@@ -1,53 +1,119 @@
 import React, { useState,useRef } from "react";
 import { Transition } from "@headlessui/react";
+import "./DarkMode.css";
+import { ChangeEventHandler } from "react";
+
+const setDark = () => {
+  localStorage.setItem("theme", "dark");
+  document.documentElement.setAttribute("data-theme", "dark");
+};
+
+const setLight = () => {
+  localStorage.setItem("theme", "light");
+  document.documentElement.setAttribute("data-theme", "light");
+};
+
+const storedTheme = localStorage.getItem("theme");
+
+const prefersDark =
+  window.matchMedia &&
+  window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+
+
+const defaultDark =
+  storedTheme === "light" || (storedTheme === null && prefersDark);
+ 
+
+if (defaultDark) {
+  setDark();
+}
+
+
+
+const toggleTheme = (e) => {
+  if (e.target.checked) {
+    setDark();
+  } else {
+    setLight();
+  }
+};
+
+
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const thisref=useRef();
+  const [isdark,setDark]=useState(true);
+  let theme=()=>{
+    setDark(!isdark)
+  }
   return (
+    
     <div>
-      <nav className="" style={{backgroundColor:'#0a192f'}}>
+      <nav className="" style={{backgroundColor: {toggleTheme}}} id="navmain">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 md:h-20">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h3 className="text-gray-200">LOGO</h3>
+                <h3 className="">LOGO</h3>
               </div>
               <div className="hidden md:block absolute right-28">
                 <div className="ml-10 flex items-baseline space-x-4">
                   <a
                     href="#"
-                    className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-base font-semibold"
+                    className=" hover:bg-gray-700 px-3 py-2 rounded-md text-base font-semibold"
                   >
                     About
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
+                    className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
                     Services
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
+                    className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
                     Projects
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
+                    className=" hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-base font-semibold"
                   >
                     Contact
                   </a>
 
                   <a
                     href="#"
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
+                    className="hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
                   >
                     Follow us
                   </a>
+                  
+
+                  <div className="toggle-theme-wrapper">
+      <span>☀️</span>
+      <label className="toggle-theme" htmlFor="checkbox">
+        <input
+          type="checkbox"
+          id="checkbox"
+          onChange={toggleTheme}
+          defaultChecked={defaultDark}
+        />
+        <div className="slider round"></div>
+      </label>
+      <span>🌒</span>
+    </div>
+
+
+
+
+
+
                 </div>
               </div>
             </div>
